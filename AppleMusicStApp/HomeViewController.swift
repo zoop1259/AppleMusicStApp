@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HomeViewController: UIViewController {
     let trackManager: TrackManager = TrackManager()
@@ -31,6 +32,32 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.updateUI(item: item)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TrackCollectionHeaderView", for: indexPath) as? TrackCollectionHeaderView else {
+                return UICollectionReusableView()
+            }
+            
+            guard let item = trackManager.todaysTrack else {
+                return UICollectionReusableView()
+            }
+            
+            header.update(with: item)
+            
+            header.tapHandler = { item in
+                let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
+                guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
+                playerVC.player.replaceCurrentItem(with: item)
+                self.present(playerVC, animated: true, completion: nil)
+            }
+            
+            return header
+        default:
+            return UICollectionReusableView()
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate {
@@ -40,8 +67,6 @@ extension HomeViewController: UICollectionViewDelegate {
         let item = trackManager.tracks[indexPath.item]
         playerVC.player.replaceCurrentItem(with: item)
         present(playerVC, animated: true, completion: nil)
-        
-        
     }
 }
 
@@ -54,6 +79,29 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
-
-
+class TrackCollectionHeaderView: UICollectionReusableView {
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    var item: AVPlayerItem?
+    var tapHandler: ((AVPlayerItem) -> Void)?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        thumbnailImageView.layer.cornerRadius = 4
+    }
+    
+    func update(with item: AVPlayerItem) {
+        self.item = item
+        
+        guard let track = item.convertToTrack() else { return }
+        
+        self.thumbnailImageView.image = track.artwork
+        self.descriptionLabel.text = "Today's pick is \(track.artist)'s album - \(track.albumName), Let's listen."
+    }
+    
+    @IBAction func cardTapped(_ sender: UIButton) {
+        guard let todaysItem = item else { return }
+        tapHandler?(todaysItem)
+    }
+}

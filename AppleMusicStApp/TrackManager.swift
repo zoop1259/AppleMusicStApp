@@ -13,10 +13,13 @@ class TrackManager {
     var tracks: [AVPlayerItem] = []
     var albums: [Album] = []
     
+    var todaysTrack: AVPlayerItem?
+    
     init() {
         let tracks = loadTracks()
         self.tracks = tracks
         self.albums = loadAlbums(tracks: tracks)
+        self.todaysTrack = self.tracks.randomElement()
     }
     
     func loadAlbums(tracks: [AVPlayerItem]) -> [Album] {
@@ -54,5 +57,9 @@ class TrackManager {
     
     func track(at index: Int) -> Track? {
         return tracks[index].convertToTrack()
+    }
+    
+    func loadOtherTodaysTrack() {
+        self.todaysTrack = self.tracks.randomElement()
     }
 }
