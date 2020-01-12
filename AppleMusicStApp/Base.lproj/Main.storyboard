@@ -40,26 +40,28 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beach House" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2Q-IS-N0k">
-                                                    <rect key="frame" x="0.0" y="184" width="102" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="184" width="180" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ty Dollar Sign" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oac-Sn-b1d">
-                                                    <rect key="frame" x="0.0" y="204" width="105.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="205" width="180" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="5JT-C3-Fv5" firstAttribute="leading" secondItem="heD-fM-MxV" secondAttribute="leading" id="5am-3B-iXt"/>
-                                                <constraint firstItem="oac-Sn-b1d" firstAttribute="top" secondItem="T2Q-IS-N0k" secondAttribute="bottom" constant="-1" id="Coz-zQ-MTq"/>
+                                                <constraint firstItem="oac-Sn-b1d" firstAttribute="top" secondItem="T2Q-IS-N0k" secondAttribute="bottom" id="Coz-zQ-MTq"/>
                                                 <constraint firstItem="T2Q-IS-N0k" firstAttribute="top" secondItem="5JT-C3-Fv5" secondAttribute="bottom" constant="4" id="FUV-vf-tj5"/>
                                                 <constraint firstAttribute="trailing" secondItem="5JT-C3-Fv5" secondAttribute="trailing" id="IVF-PH-jyw"/>
+                                                <constraint firstAttribute="trailing" secondItem="oac-Sn-b1d" secondAttribute="trailing" id="RfS-Uh-wB5"/>
                                                 <constraint firstItem="5JT-C3-Fv5" firstAttribute="top" secondItem="heD-fM-MxV" secondAttribute="top" id="TcY-ZF-znp"/>
                                                 <constraint firstItem="T2Q-IS-N0k" firstAttribute="leading" secondItem="5JT-C3-Fv5" secondAttribute="leading" id="XzL-AR-jVx"/>
                                                 <constraint firstItem="oac-Sn-b1d" firstAttribute="leading" secondItem="T2Q-IS-N0k" secondAttribute="leading" id="lNF-T7-BR2"/>
+                                                <constraint firstAttribute="trailing" secondItem="T2Q-IS-N0k" secondAttribute="trailing" id="qHT-wf-eFr"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="180" height="240"/>
