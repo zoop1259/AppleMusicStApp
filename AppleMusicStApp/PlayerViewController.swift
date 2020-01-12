@@ -21,7 +21,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var totalDurationLabel: UILabel!
     
-    let player = AVPlayer()
+    let player = SimplePlayer.shared.player
     var timeObserver: Any?
     var currentTime: Double {
         return player.currentItem?.currentTime().seconds ?? 0
@@ -160,4 +160,16 @@ public enum DefaultStyle {
             }
         }()
     }
+}
+
+
+class SimplePlayer {
+    static let shared = SimplePlayer()
+    
+    let player = AVPlayer()
+    
+    init() {
+        
+    }
+    
 }
