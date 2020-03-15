@@ -32,26 +32,12 @@ class TrackManager {
             let album = Album(title: title, tracks: tracks)
             albums.append(album)
         }
-        
-        
-//        print("----> \(albumDics)")
         return albums
     }
     
     func loadTracks() -> [AVPlayerItem] {
         let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil) ?? []
         let tracks = urls.map { AVPlayerItem(url: $0) }
-//        let tracks = urls.map{ AVPlayerItem(url: $0) }.compactMap { $0.convertToTrack() }
-//
-//        var tracks: [Track] = []
-//        for url in urls {
-//            let item = AVPlayerItem(url: url)
-//            if let track = item.convertToTrack() {
-//                tracks.append(track)
-//            }
-//            print("--> \(item.convertToTrack())")
-//        }
-        
         return tracks
     }
     

@@ -46,8 +46,6 @@ extension AVPlayerItem {
     }
 }
  
-
-
 extension AVMetadataItem {
     var title: String? {
         guard let key = commonKey?.rawValue, key == "title" else {
@@ -70,7 +68,6 @@ extension AVMetadataItem {
         return stringValue
     }
     
-    
     var artwork: UIImage? {
         guard let key = commonKey?.rawValue, key == "artwork", let data = dataValue, let image = UIImage(data: data) else {
             return nil
@@ -78,5 +75,3 @@ extension AVMetadataItem {
         return image
     }
 }
-
-
