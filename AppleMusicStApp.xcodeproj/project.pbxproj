@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		943818C2241E31200093FC36 /* TrackCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943818C1241E31200093FC36 /* TrackCollectionHeaderView.swift */; };
 		948C951923C9AAF5001642F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C951823C9AAF5001642F9 /* AppDelegate.swift */; };
 		948C951B23C9AAF5001642F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C951A23C9AAF5001642F9 /* SceneDelegate.swift */; };
 		948C952023C9AAF5001642F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948C951E23C9AAF5001642F9 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		943818C1241E31200093FC36 /* TrackCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCollectionHeaderView.swift; sourceTree = "<group>"; };
 		948C951523C9AAF5001642F9 /* AppleMusicStApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusicStApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		948C951823C9AAF5001642F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		948C951A23C9AAF5001642F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		943818C3241E31EE0093FC36 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				948C951E23C9AAF5001642F9 /* Main.storyboard */,
+				948C954723C9F10B001642F9 /* HomeViewController.swift */,
+				943818C1241E31200093FC36 /* TrackCollectionHeaderView.swift */,
+				948C957A23CA2CED001642F9 /* TrackCollectionViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		943818C4241E32160093FC36 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				948C957823CA2AFE001642F9 /* PlayerViewController.swift */,
+				948C957623CA2AEF001642F9 /* Player.storyboard */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		943818C5241E32400093FC36 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				948C958023CA2D9F001642F9 /* Extension+AVPlayerItem.swift */,
+				948C957C23CA2D16001642F9 /* TrackManager.swift */,
+				948C957E23CA2D52001642F9 /* Track.swift */,
+			);
+			path = Track;
+			sourceTree = "<group>";
+		};
 		948C950C23C9AAF5001642F9 = {
 			isa = PBXGroup;
 			children = (
@@ -112,25 +144,20 @@
 		948C951723C9AAF5001642F9 /* AppleMusicStApp */ = {
 			isa = PBXGroup;
 			children = (
+				943818C3241E31EE0093FC36 /* Home */,
+				943818C4241E32160093FC36 /* Player */,
+				943818C5241E32400093FC36 /* Track */,
 				948C951823C9AAF5001642F9 /* AppDelegate.swift */,
 				948C951A23C9AAF5001642F9 /* SceneDelegate.swift */,
-				948C951E23C9AAF5001642F9 /* Main.storyboard */,
-				948C954723C9F10B001642F9 /* HomeViewController.swift */,
-				948C957A23CA2CED001642F9 /* TrackCollectionViewCell.swift */,
-				948C958023CA2D9F001642F9 /* Extension+AVPlayerItem.swift */,
-				948C957C23CA2D16001642F9 /* TrackManager.swift */,
-				948C957E23CA2D52001642F9 /* Track.swift */,
-				948C957823CA2AFE001642F9 /* PlayerViewController.swift */,
-				948C957623CA2AEF001642F9 /* Player.storyboard */,
 				948C952123C9AAF6001642F9 /* Assets.xcassets */,
 				948C952323C9AAF6001642F9 /* LaunchScreen.storyboard */,
 				948C952623C9AAF6001642F9 /* Info.plist */,
-				948C954923CA1C7E001642F9 /* Tracks */,
+				948C954923CA1C7E001642F9 /* Resources */,
 			);
 			path = AppleMusicStApp;
 			sourceTree = "<group>";
 		};
-		948C954923CA1C7E001642F9 /* Tracks */ = {
+		948C954923CA1C7E001642F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				948C954A23CA1C7E001642F9 /* memories (listen on spotify from 3am ep).mp3 */,
@@ -156,7 +183,7 @@
 				948C955E23CA1C7E001642F9 /* tranquility.mp3 */,
 				948C955F23CA1C7E001642F9 /* Sleepless.mp3 */,
 			);
-			path = Tracks;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +282,7 @@
 			files = (
 				948C951923C9AAF5001642F9 /* AppDelegate.swift in Sources */,
 				948C957D23CA2D16001642F9 /* TrackManager.swift in Sources */,
+				943818C2241E31200093FC36 /* TrackCollectionHeaderView.swift in Sources */,
 				948C958123CA2D9F001642F9 /* Extension+AVPlayerItem.swift in Sources */,
 				948C957923CA2AFE001642F9 /* PlayerViewController.swift in Sources */,
 				948C951B23C9AAF5001642F9 /* SceneDelegate.swift in Sources */,

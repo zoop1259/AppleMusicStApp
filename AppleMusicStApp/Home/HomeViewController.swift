@@ -18,11 +18,12 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDataSource {
-    
+    // 몇개 표시 할까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return trackManager.tracks.count
     }
     
+    // 셀 어떻게 표시 할까?
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrackCollecionViewCell", for: indexPath) as? TrackCollecionViewCell else {
             return UICollectionViewCell()
@@ -33,6 +34,7 @@ extension HomeViewController: UICollectionViewDataSource {
         return cell
     }
     
+    // 헤더뷰 어떻게 표시할까?
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
@@ -61,6 +63,7 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
+    // 클릭했을때 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
         guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
@@ -71,37 +74,11 @@ extension HomeViewController: UICollectionViewDelegate {
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    // 셀 사이즈 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 20 - card(width) - 20 - card(width) - 20
         let width: CGFloat = (collectionView.bounds.width - (20 * 3))/2
         let height: CGFloat = width + 60
         return CGSize(width: width, height: height)
-    }
-}
-
-class TrackCollectionHeaderView: UICollectionReusableView {
-    @IBOutlet weak var thumbnailImageView: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
-    var item: AVPlayerItem?
-    var tapHandler: ((AVPlayerItem) -> Void)?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        thumbnailImageView.layer.cornerRadius = 4
-    }
-    
-    func update(with item: AVPlayerItem) {
-        self.item = item
-        
-        guard let track = item.convertToTrack() else { return }
-        
-        self.thumbnailImageView.image = track.artwork
-        self.descriptionLabel.text = "Today's pick is \(track.artist)'s album - \(track.albumName), Let's listen."
-    }
-    
-    @IBAction func cardTapped(_ sender: UIButton) {
-        guard let todaysItem = item else { return }
-        tapHandler?(todaysItem)
     }
 }
