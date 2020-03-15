@@ -75,3 +75,10 @@ extension AVMetadataItem {
         return image
     }
 }
+
+extension AVPlayer {
+    var isPlaying: Bool {
+        guard self.currentItem != nil else { return false }
+        return self.rate != 0
+    }
+}

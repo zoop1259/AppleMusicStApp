@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class HomeViewController: UIViewController {
     let trackManager: TrackManager = TrackManager()
@@ -38,20 +37,19 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TrackCollectionHeaderView", for: indexPath) as? TrackCollectionHeaderView else {
-                return UICollectionReusableView()
-            }
-            
             guard let item = trackManager.todaysTrack else {
                 return UICollectionReusableView()
             }
             
-            header.update(with: item)
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TrackCollectionHeaderView", for: indexPath) as? TrackCollectionHeaderView else {
+                return UICollectionReusableView()
+            }
             
+            header.update(with: item)
             header.tapHandler = { item in
                 let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
                 guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
-                playerVC.player.replaceCurrentItem(with: item)
+                playerVC.simplePlayer.replaceCurrentItem(with: item)
                 self.present(playerVC, animated: true, completion: nil)
             }
             
@@ -68,7 +66,7 @@ extension HomeViewController: UICollectionViewDelegate {
         let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
         guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
         let item = trackManager.tracks[indexPath.item]
-        playerVC.player.replaceCurrentItem(with: item)
+        playerVC.simplePlayer.replaceCurrentItem(with: item)
         present(playerVC, animated: true, completion: nil)
     }
 }
