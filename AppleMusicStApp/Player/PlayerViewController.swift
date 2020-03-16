@@ -28,10 +28,9 @@ class PlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateTintColor()
+        
         updatePlayButton()
         updateTime(time: CMTime.zero)
-        
         timeObserver = simplePlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 10), queue: DispatchQueue.main) { time in
             self.updateTime(time: time)
         }
@@ -39,6 +38,7 @@ class PlayerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateTintColor()
         updateTrackInfo()
     }
     
@@ -94,6 +94,7 @@ extension PlayerViewController {
         totalDurationLabel.text = secondsToString(sec: simplePlayer.totalDurationTime)  // 39.2045  >> 00:39
         
         if isSeeking == false {
+            // 노래 들으면서 시킹하면, 자꾸 슬라이더가 업데이트 됨, 따라서 시킹아닐때마 슬라이더 업데이트하자
             timeSlider.value = Float(simplePlayer.currentTime/simplePlayer.totalDurationTime)
         }
     }
