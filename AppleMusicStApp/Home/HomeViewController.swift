@@ -2,8 +2,8 @@
 //  HomeViewController.swift
 //  AppleMusicStApp
 //
-//  Created by joonwon lee on 2020/01/11.
-//  Copyright © 2020 com.joonwon. All rights reserved.
+//  Created by 강대민 on 2021/10/20.
+//  Copyright © 2021 com.joonwon. All rights reserved.
 //
 
 import UIKit

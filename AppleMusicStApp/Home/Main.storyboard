@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="HomeViewController" customModule="AppleMusicStApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RAr-KZ-KRi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LuI-YH-FtY">
+                                    <size key="itemSize" width="180" height="240"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrackCollectionViewCell" id="Chc-gX-76s" customClass="TrackCollectionViewCell" customModule="AppleMusicStApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="atR-eW-MZD">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="240"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TfL-71-Q9w">
+                                                    <rect key="frame" x="8" y="8" width="164" height="164"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="TfL-71-Q9w" secondAttribute="height" multiplier="1:1" id="cBH-q3-eL9"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beach House" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPX-Fl-1JS">
+                                                    <rect key="frame" x="8" y="180" width="107" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VO6-At-yPj">
+                                                    <rect key="frame" x="8" y="212.5" width="36" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bPX-Fl-1JS" firstAttribute="top" secondItem="TfL-71-Q9w" secondAttribute="bottom" constant="8" id="Hoz-Gj-3bh"/>
+                                                <constraint firstItem="VO6-At-yPj" firstAttribute="top" secondItem="bPX-Fl-1JS" secondAttribute="bottom" constant="11.5" id="QZm-Tg-FIX"/>
+                                                <constraint firstItem="TfL-71-Q9w" firstAttribute="top" secondItem="atR-eW-MZD" secondAttribute="topMargin" id="RMO-Xg-5r2"/>
+                                                <constraint firstItem="TfL-71-Q9w" firstAttribute="leading" secondItem="bPX-Fl-1JS" secondAttribute="leading" id="cZX-JD-CnZ"/>
+                                                <constraint firstItem="TfL-71-Q9w" firstAttribute="leading" secondItem="VO6-At-yPj" secondAttribute="leading" id="eMu-po-CsX"/>
+                                                <constraint firstItem="TfL-71-Q9w" firstAttribute="leading" secondItem="atR-eW-MZD" secondAttribute="leadingMargin" id="haf-DB-HE8"/>
+                                                <constraint firstItem="TfL-71-Q9w" firstAttribute="trailing" secondItem="atR-eW-MZD" secondAttribute="trailingMargin" id="jJq-8O-VXR"/>
+                                                <constraint firstItem="VO6-At-yPj" firstAttribute="leading" secondItem="atR-eW-MZD" secondAttribute="leading" constant="8" id="x8i-Nq-ehL"/>
+                                                <constraint firstItem="VO6-At-yPj" firstAttribute="bottom" secondItem="atR-eW-MZD" secondAttribute="bottomMargin" id="zuG-OP-vDp"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="trackArtist" destination="VO6-At-yPj" id="pcm-qG-npy"/>
+                                            <outlet property="trackThumbnail" destination="TfL-71-Q9w" id="o9f-pX-FyA"/>
+                                            <outlet property="trackTitle" destination="bPX-Fl-1JS" id="Lta-CO-lOX"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="6Ca-Pw-clA"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="GME-cC-wK3"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RAr-KZ-KRi" secondAttribute="trailing" id="RgC-3S-Hs3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="RAr-KZ-KRi" secondAttribute="bottom" id="TnB-xy-us4"/>
+                            <constraint firstItem="RAr-KZ-KRi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="jVQ-v3-scr"/>
+                            <constraint firstItem="RAr-KZ-KRi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="xeI-cz-8xp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297" y="70"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
